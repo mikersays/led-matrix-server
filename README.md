@@ -42,15 +42,13 @@ Install the following libraries from the Arduino Library Manager:
 
 3. **Monitor the Serial Output**
 
-   Open the Serial Monitor at 115200 baud. Once connected, the board prints the assigned IP address:
+   Once the Arduino establishes a network connection, it will broadcast its web address.
+   
+   > The board also prints the assigned IP address to the Serial Monitor at 115200 baud.
 
-   ```
-   Connected! IP Address: 192.168.1.42
-   ```
+5. **Send a Message**
 
-4. **Send a Message**
-
-   - Open a web browser and visit the IP address displayed in the Serial Monitor or on the board's LED matrix.
+   - Open a web browser and visit the printed IP address (e.g., http://192.168.1.42).
    - Use the web form to submit a message.
    - The message will scroll across the LED matrix.
 
