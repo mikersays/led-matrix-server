@@ -46,7 +46,7 @@ void setup() {
   connectToWiFi(); // Waits until real IP
 
   IPAddress ip = WiFi.localIP();
-  message = "   http://" + ipToString(ip) + " ";
+  message = "   http://" + ipToString(ip);
   Serial.print("Connected! IP Address: ");
   Serial.println(ip);
 
