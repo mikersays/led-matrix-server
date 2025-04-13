@@ -101,7 +101,7 @@ void handleClient() {
     int end = req.indexOf(' ', start);
     String msg = req.substring(start, end);
     // Decode URL-encoded string using our custom function
-    message = " " + decodeURL(msg) + "  ";  // Add 2 spaces padding
+    message = "   " + decodeURL(msg) + "";  // Add 3 spaces left padding
     Serial.print("New message: ");
     Serial.println(message);
   }
