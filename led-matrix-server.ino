@@ -10,6 +10,35 @@ String message = "";  // Will hold the IP or custom message
 unsigned long lastScroll = 0;
 const int scrollSpeed = 100; // ms
 
+// URL decoding function: converts percent-encoded sequences and '+' to spaces.
+String decodeURL(String input) {
+  String decoded = "";
+  char tempChar;
+  for (int i = 0; i < input.length(); i++) {
+    if (input[i] == '%') {
+      if (i + 2 < input.length()) {
+        char hexStr[3];
+        hexStr[0] = input[i+1];
+        hexStr[1] = input[i+2];
+        hexStr[2] = '\0';
+        long hexValue = strtol(hexStr, NULL, 16);
+        tempChar = static_cast<char>(hexValue);
+        decoded += tempChar;
+        i += 2; // Skip the hex digits
+      } else {
+        decoded += input[i];
+      }
+    }
+    else if (input[i] == '+') {
+      decoded += ' ';
+    }
+    else {
+      decoded += input[i];
+    }
+  }
+  return decoded;
+}
+
 void setup() {
   Serial.begin(115200);
   matrix.begin();
@@ -71,9 +100,8 @@ void handleClient() {
     int start = req.indexOf("GET /?msg=") + 10;
     int end = req.indexOf(' ', start);
     String msg = req.substring(start, end);
-    msg.replace("+", " ");
-    msg.replace("%20", " ");
-    message = " " + msg + "  ";  // Add 2 spaces padding
+    // Decode URL-encoded string using our custom function
+    message = " " + decodeURL(msg) + "  ";  // Add 2 spaces padding
     Serial.print("New message: ");
     Serial.println(message);
   }
