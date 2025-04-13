@@ -14,7 +14,7 @@ You can update the message using a web interface hosted on the board.
 ## Hardware Requirements
 
 - **Arduino UNO R4 WiFi**
-- Built-in 12x8 LED matrix
+   - Built-in 12x8 LED matrix
 - USB cable for programming and power
 
 ## Required Libraries
