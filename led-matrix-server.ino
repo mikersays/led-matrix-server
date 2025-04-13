@@ -8,7 +8,7 @@ WiFiServer server(80);
 
 String message = "";  // Will hold the IP or custom message
 unsigned long lastScroll = 0;
-const int scrollSpeed = 100; // ms
+const int scrollSpeed = 85; // ms
 
 // URL decoding function: converts percent-encoded sequences and '+' to spaces.
 String decodeURL(String input) {
