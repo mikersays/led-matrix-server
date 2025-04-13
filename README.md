@@ -1,6 +1,8 @@
-# Wi-Fi LED Matrix Scroller for Arduino UNO R4 WiFi
+# LED Matrix Scroller for Arduino UNO R4 WiFi
 
-This Arduino sketch runs on the **Arduino UNO R4 WiFi**. It connects to a Wi-Fi network and displays scrolling messages on the onboard LED matrix. You can update the message using a web interface hosted on the board.
+This Arduino sketch runs on the **Arduino UNO R4 WiFi**. It connects to a Wi-Fi network and displays scrolling messages on the onboard LED matrix. 
+
+You can update the message using a web interface hosted on the board.
 
 ## Features
 
