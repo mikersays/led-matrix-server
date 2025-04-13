@@ -8,7 +8,7 @@ WiFiServer server(80);
 
 String message = "";  // Will hold the IP or custom message
 unsigned long lastScroll = 0;
-const int scrollSpeed = 85; // ms
+const int scrollSpeed = 100; // ms
 
 // URL decoding function: converts percent-encoded sequences and '+' to spaces.
 String decodeURL(String input) {
@@ -46,7 +46,7 @@ void setup() {
   connectToWiFi(); // Waits until real IP
 
   IPAddress ip = WiFi.localIP();
-  message = "   http://" + ipToString(ip) + "   ";
+  message = "   http://" + ipToString(ip) + " ";
   Serial.print("Connected! IP Address: ");
   Serial.println(ip);
 
@@ -101,7 +101,7 @@ void handleClient() {
     int end = req.indexOf(' ', start);
     String msg = req.substring(start, end);
     // Decode URL-encoded string using our custom function
-    message = "   " + decodeURL(msg) + "";  // Add 3 spaces left padding
+    message = " " + decodeURL(msg) + "  ";  // Add 2 spaces padding
     Serial.print("New message: ");
     Serial.println(message);
   }
